@@ -46299,7 +46299,13 @@ var render = function() {
               _vm._v(" "),
               _vm._m(2, true),
               _vm._v(" "),
-              _vm._m(3, true)
+              _c("span", { staticClass: "panel-icon column is-1" }, [
+                _c("i", {
+                  staticClass: "has-text-primary fa fa-eye",
+                  attrs: { "aria-hidden": "true" },
+                  on: { click: _vm.openShow }
+                })
+              ])
             ])
           })
         ],
@@ -46308,6 +46314,11 @@ var render = function() {
       _vm._v(" "),
       _c("Add", {
         attrs: { openmodal: _vm.addActive },
+        on: { closeRequest: _vm.close }
+      }),
+      _vm._v(" "),
+      _c("show", {
+        attrs: { openmodal: _vm.showActive },
         on: { closeRequest: _vm.close }
       })
     ],
@@ -46353,17 +46364,6 @@ var staticRenderFns = [
     return _c("span", { staticClass: "panel-icon column is-1" }, [
       _c("i", {
         staticClass: "has-text-info fa fa-edit",
-        attrs: { "aria-hidden": "true" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "panel-icon column is-1" }, [
-      _c("i", {
-        staticClass: "has-text-primary fa fa-eye",
         attrs: { "aria-hidden": "true" }
       })
     ])
@@ -47203,13 +47203,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 var Add = __webpack_require__(53);
+var Show = __webpack_require__(61);
 /* harmony default export */ __webpack_exports__["default"] = ({
-    components: { Add: Add },
+    components: { Add: Add, Show: Show },
     data: function data() {
         return {
             addActive: '',
+            showActive: '',
             lists: {}
         };
     },
@@ -47227,11 +47230,252 @@ var Add = __webpack_require__(53);
         openAdd: function openAdd() {
             this.addActive = 'is-active';
         },
+        openShow: function openShow() {
+            this.showActive = 'is-active';
+        },
         close: function close() {
-            this.addActive = '';
+            this.addActive = this.showActive = '';
         }
     }
 });
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(62)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(64)
+/* template */
+var __vue_template__ = __webpack_require__(65)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-745dfb18"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\Show.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-745dfb18", Component.options)
+  } else {
+    hotAPI.reload("data-v-745dfb18", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(63);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(56)("d55f0092", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-745dfb18\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Show.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-745dfb18\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Show.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(50)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 64 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "Show",
+    props: ['openmodal'],
+    methods: {
+        close: function close() {
+            this.$emit('closeRequest');
+        }
+    }
+});
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "modal", class: _vm.openmodal }, [
+    _c("div", { staticClass: "modal-background" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "modal-card" }, [
+      _c("header", { staticClass: "modal-card-head" }, [
+        _c("p", { staticClass: "modal-card-title" }, [_vm._v("Add New")]),
+        _vm._v(" "),
+        _c("button", {
+          staticClass: "delete",
+          attrs: { "aria-label": "close" },
+          on: { click: _vm.close }
+        })
+      ]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("footer", { staticClass: "modal-card-foot" }, [
+        _c(
+          "button",
+          { staticClass: "button is-success", on: { click: _vm.save } },
+          [_vm._v("Save changes")]
+        ),
+        _vm._v(" "),
+        _c("button", { staticClass: "button", on: { click: _vm.close } }, [
+          _vm._v("Cancel")
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "modal-card-body" }, [
+      _c("div", { staticClass: "field" }, [
+        _c("label", { staticClass: "label", attrs: { for: "" } }, [
+          _vm._v("Name")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "control" }, [
+        _c("input", {
+          staticClass: "input",
+          attrs: { type: "text", placeholder: "Name" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "field" }, [
+        _c("label", { staticClass: "label", attrs: { for: "" } }, [
+          _vm._v("Phone")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "control" }, [
+        _c("input", {
+          staticClass: "input",
+          attrs: { type: "number", placeholder: "Phone" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "field" }, [
+        _c("label", { staticClass: "label" }, [_vm._v("Email")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "control" }, [
+        _c("input", {
+          staticClass: "input",
+          attrs: { type: "email", placeholder: "Email" }
+        })
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-745dfb18", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
