@@ -5,8 +5,8 @@
                 CyberX6
             </a>
 
-            <router-link to="/home" class="navbar-item">Home</router-link>
-            <router-link to="/about" class="navbar-item">About</router-link>
+            <router-link to="/phonebook/home" class="navbar-item">Home</router-link>
+            <router-link to="/phonebook/about" class="navbar-item">About</router-link>
 
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
                 <span aria-hidden="true"></span>

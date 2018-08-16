@@ -12081,7 +12081,7 @@ var Myfooter = __webpack_require__(42);
 var Home = __webpack_require__(44);
 var About = __webpack_require__(46);
 
-var routes = [{ path: '/home', component: Home }, { path: '/about', component: About }];
+var routes = [{ path: '/phonebook/home', component: Home }, { path: '/phonebook/about', component: About }];
 
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
     mode: 'history',
@@ -46061,13 +46061,13 @@ var render = function() {
           _vm._v(" "),
           _c(
             "router-link",
-            { staticClass: "navbar-item", attrs: { to: "/home" } },
+            { staticClass: "navbar-item", attrs: { to: "/phonebook/home" } },
             [_vm._v("Home")]
           ),
           _vm._v(" "),
           _c(
             "router-link",
-            { staticClass: "navbar-item", attrs: { to: "/about" } },
+            { staticClass: "navbar-item", attrs: { to: "/phonebook/about" } },
             [_vm._v("About")]
           ),
           _vm._v(" "),
@@ -46618,7 +46618,7 @@ exports = module.exports = __webpack_require__(50)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -46928,6 +46928,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "Add",
@@ -46938,7 +46941,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 name: '',
                 phone: '',
                 email: ''
-            }
+            },
+            errors: {}
         };
     },
 
@@ -46947,10 +46951,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.$emit('closeRequest');
         },
         save: function save() {
+            var _this = this;
+
             axios.post('/phonebook', this.$data).then(function (response) {
                 return console.log(response);
             }).catch(function (error) {
-                return console.log(error);
+                return _this.errors = error.response.data.errors;
             });
         }
     }
@@ -46969,7 +46975,7 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "modal-card" }, [
       _c("header", { staticClass: "modal-card-head" }, [
-        _c("p", { staticClass: "modal-card-title" }, [_vm._v("Modal title")]),
+        _c("p", { staticClass: "modal-card-title" }, [_vm._v("Add New")]),
         _vm._v(" "),
         _c("button", {
           staticClass: "delete",
@@ -46992,6 +46998,7 @@ var render = function() {
               }
             ],
             staticClass: "input",
+            class: { "is-danger": _vm.errors.name },
             attrs: { type: "text", placeholder: "Name" },
             domProps: { value: _vm.list.name },
             on: {
@@ -47004,6 +47011,12 @@ var render = function() {
             }
           })
         ]),
+        _vm._v(" "),
+        _vm.errors.name
+          ? _c("small", { staticClass: "has-text-danger " }, [
+              _vm._v(_vm._s(_vm.errors.name[0]))
+            ])
+          : _vm._e(),
         _vm._v(" "),
         _vm._m(1),
         _vm._v(" "),
@@ -47018,6 +47031,7 @@ var render = function() {
               }
             ],
             staticClass: "input",
+            class: { "is-danger": _vm.errors.phone },
             attrs: { type: "number", placeholder: "Phone" },
             domProps: { value: _vm.list.phone },
             on: {
@@ -47030,6 +47044,12 @@ var render = function() {
             }
           })
         ]),
+        _vm._v(" "),
+        _vm.errors.phone
+          ? _c("small", { staticClass: "has-text-danger " }, [
+              _vm._v(_vm._s(_vm.errors.phone[0]))
+            ])
+          : _vm._e(),
         _vm._v(" "),
         _vm._m(2),
         _vm._v(" "),
@@ -47044,6 +47064,7 @@ var render = function() {
               }
             ],
             staticClass: "input",
+            class: { "is-danger": _vm.errors.email },
             attrs: { type: "email", placeholder: "Email" },
             domProps: { value: _vm.list.email },
             on: {
@@ -47055,7 +47076,13 @@ var render = function() {
               }
             }
           })
-        ])
+        ]),
+        _vm._v(" "),
+        _vm.errors.email
+          ? _c("small", { staticClass: "has-text-danger " }, [
+              _vm._v(_vm._s(_vm.errors.email[0]))
+            ])
+          : _vm._e()
       ]),
       _vm._v(" "),
       _c("footer", { staticClass: "modal-card-foot" }, [

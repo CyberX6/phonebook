@@ -26,8 +26,8 @@ let Home = require('./components/Home');
 let About = require('./components/About');
 
 const routes = [
-    { path: '/home', component: Home },
-    { path: '/about', component: About }
+    { path: '/phonebook/home', component: Home },
+    { path: '/phonebook/about', component: About }
 ];
 
 const router = new VueRouter({
