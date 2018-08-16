@@ -89,4 +89,9 @@ class PhonebookController extends Controller
     {
         //
     }
+
+    public function getData()
+    {
+        return Phonebook::orderBy('name')->get();
+    }
 }
