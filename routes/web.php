@@ -12,9 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('phonebook');
+    return view('welcome');
 });
 
-Route::get('/{name}', function (){
-    return redirect('/');
+Route::get('/phonebook/{name}', function (){
+    return redirect('/phonebook');
 })->where('name', '[A-Za-z]+');
+
+Route::resource('phonebook','PhonebookController');
