@@ -11,7 +11,9 @@
 <body>
     <div id="app">
         <my-header></my-header>
+        <div class="container">
             <router-view></router-view>
+        </div>
         <myfooter></myfooter>
     </div>
     <script src="{{asset('js/app.js')}}"></script>
